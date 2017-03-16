@@ -24,4 +24,4 @@
         - pi-initial-setup.yml
         - hosts
         - wpa_supplicant.conf
-        - 000-README.pi
+        - 000-FIRSTBOOT.sh

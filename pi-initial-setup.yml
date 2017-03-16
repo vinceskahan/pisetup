@@ -41,7 +41,6 @@
         - vim
         - git
         - lsof
-        - unix2dos
         - dos2unix
 
 
