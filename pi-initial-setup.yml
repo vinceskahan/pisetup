@@ -2,7 +2,6 @@
 - hosts: localhost
 
   tasks:
-    become: true
 
     - name: update apt-cache (daily)
       apt: update_cache=yes cache_valid_time=86400
@@ -33,5 +32,8 @@
       with_items:
         - vim
         - git
+        - lsof
+        - unix2dos
+        - dos2unix
 
 
