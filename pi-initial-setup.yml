@@ -1,0 +1,37 @@
+---
+- hosts: localhost
+
+  tasks:
+    become: true
+
+    - name: update apt-cache (daily)
+      apt: update_cache=yes cache_valid_time=86400
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - name: apt-get update
+      apt: upgrade=yes
+
+    - name: add vds key to pi authorized_keys file
+      authorized_key:
+        user: pi
+        state: present
+        key: '{{ item }}'
+      with_file:
+        - /boot/vds.key
+
+    - name: add vds key to root authorized_keys file
+      authorized_key:
+        user: root
+        state: present
+        key: '{{ item }}'
+      with_file:
+        - /boot/vds.key
+
+    - name: install packages
+      apt:
+        pkg: "{{ item }}"
+      with_items:
+        - vim
+        - git
+
+

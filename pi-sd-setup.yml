@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  become: false
+  gather_facts: false
+
+  tasks:
+
+    - name: add vds public key to SD card boot partition
+      copy:
+        src: /Users/vince/.ssh/id_rsa_nopass.pub
+        dest: /Volumes/boot/vds.key
+
+    - name: touch ssh in SD card boot partition
+      copy:
+        content: ""
+        dest: /Volumes/boot/ssh
+        force: no
+
+    - name: install playbooks to SD card boot partition
+      copy:
+        src: "{{ item }}"
+        dest: /Volumes/boot/
+      with_items:
+        - pi-initial-setup.yml
+        - hosts
+        - wpa_supplicant.conf
+        - 000-README.pi

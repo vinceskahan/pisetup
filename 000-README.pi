@@ -1,0 +1,12 @@
+#
+# steps to do after first boot of a pi
+# to set up stuff we do always
+#
+
+cd /boot
+sudo apt-get update
+sudo apt-get install -y ansible
+sudo cp hosts /tmp
+sudo chmod 644 /tmp/hosts
+sudo ansible-playbook -i /tmp/hosts pi-initial-setup.yml
+
