@@ -1,5 +1,10 @@
 this is stuff to initially setup a pi after flashing the SD card
 
+setup your working tree:
+ - copy wpa_supplicant.conf.example to wpa_supplicant.conf and
+    edit in your particular ssid and psk values
+
+every time you flash a card:
  - flash the card, assumes it'll be mounted as /Volumes/boot on the Mac afterward
  - run the following to copy stuff to the SD card:
     sh 000-AFTER-FLASH.sh
