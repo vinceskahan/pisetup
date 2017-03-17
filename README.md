@@ -15,16 +15,15 @@ It is expected that the pi-initial-setup.yml playbook will continue to
 evolve over time.  Theoretically it'll be idempotent enough to be able
 to be (re)run as needed on existing systems.
 
-Note for Pi Zero - you probably want to change the memory split to 32 MB for the GPU,
-as the default seems to be 128 MB which leaves not a lot for regular processing
-
-dmesg reports:
+Models tested on, as reported by 'dmesg':
 
  * Machine model: Raspberry Pi Zero W Rev 1.1
  * Machine model: Raspberry Pi 3 Model B Rev 1.2
  * Machine model: Raspberry Pi Model B Rev 2
  * Machine model: Raspberry Pi Zero Rev 1.3
  
-To look for available memory, run "dmesg | grep lowmem" or look for gpu_mem
-in /boot/config.txt if you have run raspi_config and used advanced options
-to set the memory split.
+Note: default memory split on the original Pi Zero W Rev 1.1 seems to be
+128 MB which leaves very little memory for normal uses.  Run raspi-config
+or append "gpu_mem=32" to /boot/config.txt to set it to a more reasonable
+value.   You can check after boot by "dmesg | grep lowmem" to see what's left.
+
