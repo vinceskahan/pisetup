@@ -9,10 +9,11 @@ boot the pi with the SD card, ssh in as 'pi' with the default password
  - set the hostname
  - set pi's password
  - cd to /boot
- - run "sh 000-README.pi" to install ansible and run the one-time playbook
+ - run "sh 000-AFTER-FLASH.sh" to install ansible and run the one-time playbook
 
 It is expected that the pi-initial-setup.yml playbook will continue to
 evolve over time.  Theoretically it'll be idempotent enough to be able
 to be (re)run as needed on existing systems.
 
-
+Note for Pi Zero - you probably want to change the memory split to 32 MB for the GPU,
+as the default seems to be 128 MB which leaves not a lot for regular processing
