@@ -20,10 +20,10 @@ as the default seems to be 128 MB which leaves not a lot for regular processing
 
 dmesg reports:
 
- Machine model: Raspberry Pi Zero W Rev 1.1
- Machine model: Raspberry Pi 3 Model B Rev 1.2
- Machine model: Raspberry Pi Model B Rev 2
- Machine model: Raspberry Pi Zero Rev 1.3
+ * Machine model: Raspberry Pi Zero W Rev 1.1
+ * Machine model: Raspberry Pi 3 Model B Rev 1.2
+ * Machine model: Raspberry Pi Model B Rev 2
+ * Machine model: Raspberry Pi Zero Rev 1.3
  
 To look for available memory, run "dmesg | grep lowmem" or look for gpu_mem
 in /boot/config.txt if you have run raspi_config and used advanced options
